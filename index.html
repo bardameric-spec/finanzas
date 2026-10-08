@@ -1933,7 +1933,7 @@ iniciarNube();
 </script>
 <script>
 /* Versión para hosting propio: habla con Apps Script por fetch, sin cuentas de Google. */
-const API_URL='https://script.google.com/macros/s/AKfycbyelPTfp_5zyzBQX0KToHW6aI6LCYXByo-gWU1lhcYyZlzjQkSKVXtv-dfyxmiAU9Tb/exec';
+const API_URL='https://script.google.com/macros/s/AKfycbxlB0bWKfBVa9Byg2W2q5ZHc9BHGV5I6iCXKz2U5JBtjRWJ1AE6ZHUjzD5TsUEVOAXu/exec';
 (function(){
   var url=API_URL;
   try{var q=new URLSearchParams(location.search).get('api');if(q){url=q;localStorage.setItem('fin_api',q)}else{var g=localStorage.getItem('fin_api');if(g)url=g}}catch(e){}
@@ -1970,7 +1970,7 @@ function pantalla(msg){
   document.body.appendChild(capa);
   var m=capa.querySelector("#pinm");m.textContent=msg||"";
   var inp=capa.querySelector("#pinv");inp.focus();
-  capa.querySelector("#pinf").onsubmit=function(ev){ev.preventDefault();var p=inp.value;if(!p)return;m.style.color="#3b2a1a";m.textContent="Comprobando...";intentar(p,capa.querySelector("#pinr").checked)}
+  capa.querySelector("#pinf").onsubmit=function(ev){ev.preventDefault();var p=inp.value.trim();if(!p)return;m.style.color="#3b2a1a";m.textContent="Comprobando...";intentar(p,capa.querySelector("#pinr").checked)}
 }
 function intentar(pin,rec){
   google.script.run.withSuccessHandler(function(r){
